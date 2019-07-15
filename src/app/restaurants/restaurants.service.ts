@@ -17,7 +17,7 @@ export class RestaurantsService {
     restaurants(search?: string):Observable<Restaurant[]> {
       let params: HttpParams = undefined
       if (search) {
-        params = new HttpParams().set('q', search)
+        params = new HttpParams().append('q', search)
       }
       return this.http.get<Restaurant[]>(`${MEAT_API}/restaurants`, {params:params})
     }
